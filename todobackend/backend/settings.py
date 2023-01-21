@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # Own apps
     'todo',
+    'api',
     'rest_framework',
 ]
 
