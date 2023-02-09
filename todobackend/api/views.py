@@ -39,4 +39,7 @@ class TodoTogglecomplete(generics.UpdateAPIView):
     def perform_update(self, serializer):
         serializer.instance.completed=not(serializer.instance.completed)
         serializer.save()
+
+
+
         
