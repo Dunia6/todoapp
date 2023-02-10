@@ -10,10 +10,9 @@ class TodoSerializer(serializers.ModelSerializer):
         fields = ['id', 'title', 'memo', 'created', 'completed']
 
 
-class todotoggleCompleteSerializer(serialisers.ModelSerializer):
+class TodotoggleCompleteSerializer(serializers.ModelSerializer):
     class Meta():
         model = Todo
         fields = ['id']
-        read_only_fields = ['title', 'memo', '']
-            
-    
+        read_only_fields = ['title', 'memo', 'created', 'completed']
+

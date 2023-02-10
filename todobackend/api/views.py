@@ -1,5 +1,5 @@
 from rest_framework import generics, permissions
-from .serializers import TodoSerializer
+from .serializers import TodoSerializer, TodotoggleCompleteSerializer
 from todo.models import Todo
 # Create your views here.
 
@@ -28,8 +28,8 @@ class TodoRetrieveUpdateDetroy(generics.RetrieveUpdateDestroyAPIView):
         return Todo.objects.filter(user=user)
 
 
-class TodoTogglecomplete(generics.UpdateAPIView):
-    serializer_class = TodoTogglecompleteSerializer
+class TodoToggleComplete(generics.UpdateAPIView):
+    serializer_class = TodotoggleCompleteSerializer
     permission_classes = [permissions.IsAuthenticated]
     
     def get_queryset(self):
@@ -39,7 +39,3 @@ class TodoTogglecomplete(generics.UpdateAPIView):
     def perform_update(self, serializer):
         serializer.instance.completed=not(serializer.instance.completed)
         serializer.save()
-
-
-
-        
